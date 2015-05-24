@@ -23,17 +23,17 @@ Since code is worth a thousand words, let's jump right into it.
 
 == Basic Use ==
 
-If you're okay with anonymous functions:
+If you're okay with anonymous functions, just pass an object into `Lineage.define` with the properties to put on the prototype:
 
 {{{
-var Thing = Lineage.define(function(p) {
-    p.spiffy = function() {
+var Thing = Lineage.define({
+    spiffy: function() {
         console.log("I'm a spiffy thing!");
-    };
+    }
 });
 }}}
 
-If you prefer your functions to have true names that show up in call stacks, lists of breakpoints, and such in a debugger:
+If you prefer your functions to have true names that show up in call stacks, lists of breakpoints, and such in a debugger, pass in a function accepting an argument; the argument is an object that will end up being the prototype assigned to instances:
 
 {{{
 var Thing = Lineage.define("Thing", function(p) {
